@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robotic Chess Simulator · Marta Forjaz Pereira</title>
+<style>
+:root{color:#172d45;background:#f3f6f8;font:16px/1.55 system-ui,sans-serif}
+body{margin:0}main{max-width:1020px;margin:auto;padding:1.6rem 1rem 3rem}
+h1{margin:.55rem 0;line-height:1.15;font-size:clamp(1.8rem,4vw,3.25rem)}
+p{max-width:72ch}a{color:#234d78}.workcell{background:white;border:1px solid #cbd8e2;border-radius:14px;overflow:hidden}
+.sim-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,290px)}
+canvas{width:100%;height:auto;display:block;background:radial-gradient(ellipse at top,#fbfcfd,#dce7ee)}
+fieldset{margin:0;padding:1.2rem;border:0;border-left:1px solid #cbd8e2;min-width:0}
+fieldset p{padding:.5rem 0;margin:0}button{margin:.25rem .3rem .25rem 0;padding:.55rem .75rem;border:1px solid #40627b;border-radius:.4rem;background:white;color:#172d45;font:inherit;cursor:pointer}
+#run{background:#172d45;color:white}button:disabled{opacity:.5} label{display:block;margin:.7rem 0}
+input[type=range]{width:100%} .resources{display:flex;gap:1rem;flex-wrap:wrap}
+@media (max-width:670px){.sim-layout{grid-template-columns:1fr}fieldset{border-left:0;border-top:1px solid #cbd8e2}}
+</style>
+</head>
+<body>
+<main id="sim">
+<p><a href="https://martaforjaz.github.io/#robotics-replay">← Portfolio replay</a></p>
+<h1>Robotic chess simulator</h1>
+<p>Run the ten recorded moves with MuJoCo physics in your browser. Step through individual moves, change the camera view, or control the two arm joints manually.</p>
+<div class="workcell sim-layout">
+<canvas width="690" height="455" aria-label="Live simulated robot arm above a chessboard"></canvas>
+<fieldset id="sim-controls" disabled aria-label="Simulation controls">
+<p role="status">Loading MuJoCo WebAssembly…</p>
+<button id="run" type="button">Run sequence</button><button id="step" type="button">Next move</button><button id="reset" type="button">Reset</button>
+<label><input id="top-view" type="checkbox"> Top view</label>
+<label><input id="manual" type="checkbox"> Manual joint control</label>
+<div id="joints" hidden>
+<label>Shoulder (rad) <input type="range" min="-2.4" max="1.5" step=".01" value="0"></label>
+<label>Elbow (rad) <input type="range" min="0" max="2.85" step=".01" value="0"></label>
+</div>
+</fieldset>
+</div>
+<p>The browser runs the same two-joint MuJoCo actuator model and checks each transfer against a 2 mm position tolerance. It uses the board states previously verified by the ROS 2 and ArUco workflow. The browser uses an idealized grasp.</p>
+<div class="resources"><a href="https://martaforjaz.github.io/#robotics-replay">Watch the verified replay</a><a href="https://github.com/martaforjaz/ros2-vision-manipulation">ROS 2 source and setup</a></div>
+</main>
+<script type="module">import {mount} from "./simulator.mjs"; mount(document.querySelector("#sim"));</script>
+</body>
+</html>
+

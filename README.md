@@ -49,6 +49,21 @@ python render_chess_video.py evidence/chess-scripted.json chess-arm.mp4 chess-ar
 
 The board uses fixed synthetic calibration and ArUco identifiers. Each transfer uses an idealized grasp, with no collision-aware planning. Castling and promotion are explicitly unavailable in this demo.
 
+## Live browser simulator
+
+[Open the MuJoCo WebAssembly simulator](https://martaforjaz.github.io/web/) · [Watch the synchronized replay and video](https://martaforjaz.github.io/#robotics-replay)
+
+Run the recorded ten moves live, step through one move at a time, switch to a top view, or control the two actuated joints manually. The browser integrates the same MuJoCo model and checks placement tolerance. Full ROS 2 and ArUco verification are reproduced by the Python/ROS workflow below.
+
+To regenerate the browser files and serve them locally after installing the project dependencies:
+
+```bash
+python export_browser_sim.py
+python -m http.server 8000
+```
+
+Open `http://localhost:8000/web/`. The page loads the pinned MuJoCo WebAssembly runtime from jsDelivr.
+
 ## Run the simulation
 
 ```bash

@@ -1,0 +1,224 @@
+[
+  {
+    "move": "e2e4",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+    "transfers": [
+      {
+        "square": "e2",
+        "pick": [
+          0.16,
+          0.015
+        ],
+        "drop": [
+          0.22,
+          0.015
+        ]
+      }
+    ]
+  },
+  {
+    "move": "d7d5",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "transfers": [
+      {
+        "square": "d7",
+        "pick": [
+          0.31,
+          -0.015
+        ],
+        "drop": [
+          0.25,
+          -0.015
+        ]
+      }
+    ]
+  },
+  {
+    "move": "e4d5",
+    "capture": true,
+    "verification_retries": 1,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2",
+    "transfers": [
+      {
+        "square": "d5",
+        "pick": [
+          0.25,
+          -0.015
+        ],
+        "drop": [
+          0.24,
+          -0.2
+        ]
+      },
+      {
+        "square": "e4",
+        "pick": [
+          0.22,
+          0.015
+        ],
+        "drop": [
+          0.25,
+          -0.015
+        ]
+      }
+    ]
+  },
+  {
+    "move": "d8d5",
+    "capture": true,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/3q4/8/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3",
+    "transfers": [
+      {
+        "square": "d5",
+        "pick": [
+          0.25,
+          -0.015
+        ],
+        "drop": [
+          0.24,
+          -0.2
+        ]
+      },
+      {
+        "square": "d8",
+        "pick": [
+          0.33999999999999997,
+          -0.015
+        ],
+        "drop": [
+          0.25,
+          -0.015
+        ]
+      }
+    ]
+  },
+  {
+    "move": "b1c3",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 3",
+    "transfers": [
+      {
+        "square": "b1",
+        "pick": [
+          0.13,
+          -0.075
+        ],
+        "drop": [
+          0.19,
+          -0.045
+        ]
+      }
+    ]
+  },
+  {
+    "move": "d5a5",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/q7/8/2N5/PPPP1PPP/R1BQKBNR w KQkq - 2 4",
+    "transfers": [
+      {
+        "square": "d5",
+        "pick": [
+          0.25,
+          -0.015
+        ],
+        "drop": [
+          0.25,
+          -0.105
+        ]
+      }
+    ]
+  },
+  {
+    "move": "g1f3",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/q7/8/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 3 4",
+    "transfers": [
+      {
+        "square": "g1",
+        "pick": [
+          0.13,
+          0.075
+        ],
+        "drop": [
+          0.19,
+          0.045
+        ]
+      }
+    ]
+  },
+  {
+    "move": "a5b6",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/1q6/8/8/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 5",
+    "transfers": [
+      {
+        "square": "a5",
+        "pick": [
+          0.25,
+          -0.105
+        ],
+        "drop": [
+          0.28,
+          -0.075
+        ]
+      }
+    ]
+  },
+  {
+    "move": "f1c4",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/1q6/8/2B5/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 5 5",
+    "transfers": [
+      {
+        "square": "f1",
+        "pick": [
+          0.13,
+          0.045
+        ],
+        "drop": [
+          0.22,
+          -0.045
+        ]
+      }
+    ]
+  },
+  {
+    "move": "g8f6",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kb1r/ppp1pppp/1q3n2/8/2B5/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 6 6",
+    "transfers": [
+      {
+        "square": "g8",
+        "pick": [
+          0.33999999999999997,
+          0.075
+        ],
+        "drop": [
+          0.28,
+          0.045
+        ]
+      }
+    ]
+  }
+]

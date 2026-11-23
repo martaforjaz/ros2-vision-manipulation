@@ -1,0 +1,25 @@
+<mujoco model="planar_arm">
+  <option timestep="0.004" gravity="0 0 0"/>
+  <default>
+    <joint damping="0.75"/>
+    <geom contype="0" conaffinity="0" density="700"/>
+  </default>
+  <worldbody>
+    <body name="shoulder">
+      <joint name="q1" type="hinge" axis="0 0 1"/>
+      <geom type="capsule" fromto="0 0 0 .24 0 0" size=".017"/>
+      <body name="elbow" pos=".24 0 0">
+        <joint name="q2" type="hinge" axis="0 0 1"/>
+        <geom type="capsule" fromto="0 0 0 .20 0 0" size=".013"/>
+        <site name="tcp" pos=".20 0 0" size=".01"/>
+      </body>
+    </body>
+    <body name="payload" mocap="true">
+      <geom type="box" size=".015 .015 .015" rgba=".6 .3 .5 1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <position joint="q1" kp="45"/>
+    <position joint="q2" kp="35"/>
+  </actuator>
+</mujoco>
