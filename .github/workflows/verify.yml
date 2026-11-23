@@ -19,6 +19,7 @@ jobs:
           export PYTHONPATH="/tmp/vision-deps:${PYTHONPATH:-}"
           source /opt/ros/jazzy/setup.bash
           python3 check_demo.py
+          python3 chess_demo.py
           colcon build --packages-select vision_grasp
       - name: Verify ROS topic output
         run: |

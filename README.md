@@ -15,6 +15,21 @@ Panel a shows the end-effector path. Panel b shows position over simulation time
 
 [Scenario results](evidence/scenarios.json) · [Sampled simulator trajectory](evidence/trajectory.csv)
 
+## Vision-verified chess
+
+The table-top workcell reads individually tagged pieces from a synthetic overhead image. It checks each legal move, runs one transfer in MuJoCo or two transfers for a capture, maps the simulated payload endpoint to a board square, and reacquires the camera frame before committing the resulting FEN.
+
+The scripted run completed **10 plies**, including **two captures** and **one recovered camera occlusion**. A separate injected wrong-square placement was rejected without updating the game. The Stockfish run completed another ten plies. [Scripted trace](evidence/chess-scripted.json) · [Stockfish trace](evidence/chess-stockfish.json) · [Interactive replay](https://martaforjaz.github.io/#robotics)
+
+```bash
+python chess_demo.py
+python chess_demo.py --stockfish /path/to/stockfish
+```
+
+After building the ROS package, run `ros2 run vision_grasp chess_demo`. Publish a UCI move such as `e2e4` to `/chess/move` as a `std_msgs/msg/String`, then inspect `/chess/result`. Pass `--ros-args -p stockfish_path:=/path/to/stockfish` to request an engine reply after each accepted move.
+
+The board uses fixed synthetic calibration and ArUco identifiers. Each transfer uses an idealized grasp, with no collision-aware planning. Castling and promotion are explicitly unavailable in this demo.
+
 ## Run the simulation
 
 ```bash

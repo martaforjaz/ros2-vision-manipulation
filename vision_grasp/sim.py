@@ -35,10 +35,13 @@ MODEL = """
 """
 
 
-def execute(pick):
+def execute(pick, place=PLACE):
     joints = inverse(*pick)
     if joints is None:
         raise ValueError("Pick pose is outside the arm workspace")
+    drop_joints = inverse(*place)
+    if drop_joints is None:
+        raise ValueError("Drop pose is outside the arm workspace")
     model = mujoco.MjModel.from_xml_string(MODEL)
     data = mujoco.MjData(model)
     data.mocap_pos[0] = (*pick, 0.0)
@@ -60,10 +63,10 @@ def execute(pick):
     pick_error = dist(reached, pick)
     if pick_error > 0.002:
         raise RuntimeError(f"Approach failed to settle: {pick_error:.6f} m")
-    phase("transfer", inverse(*PLACE), True)
+    phase("transfer", drop_joints, True)
     placed = tuple(map(float, data.mocap_pos[0, :2]))
-    place_error = round(dist(placed, PLACE), 9)
+    place_error = round(dist(placed, place), 9)
     if place_error > 0.002:
         raise RuntimeError(f"Transfer failed to settle: {place_error:.6f} m")
     return {"pick_error_metres": round(pick_error, 9), "place_error_metres": place_error,
-            "drop_target_metres": PLACE, "payload_final_metres": placed}, trajectory
+            "drop_target_metres": place, "payload_final_metres": placed}, trajectory

@@ -1,0 +1,82 @@
+[
+  {
+    "move": "e2e4",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+    "wall_seconds": 0.0124
+  },
+  {
+    "move": "d7d5",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "wall_seconds": 0.0121
+  },
+  {
+    "move": "e4d5",
+    "capture": true,
+    "verification_retries": 1,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2",
+    "wall_seconds": 0.0194
+  },
+  {
+    "move": "d8d5",
+    "capture": true,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/3q4/8/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3",
+    "wall_seconds": 0.0178
+  },
+  {
+    "move": "b1c3",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 3",
+    "wall_seconds": 0.0143
+  },
+  {
+    "move": "d5a5",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/q7/8/2N5/PPPP1PPP/R1BQKBNR w KQkq - 2 4",
+    "wall_seconds": 0.0115
+  },
+  {
+    "move": "g1f3",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/8/q7/8/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 3 4",
+    "wall_seconds": 0.0143
+  },
+  {
+    "move": "a5b6",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/1q6/8/8/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 5",
+    "wall_seconds": 0.0151
+  },
+  {
+    "move": "f1c4",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kbnr/ppp1pppp/1q6/8/2B5/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 5 5",
+    "wall_seconds": 0.0141
+  },
+  {
+    "move": "g8f6",
+    "capture": false,
+    "verification_retries": 0,
+    "max_simulated_placement_error_metres": 0.0,
+    "fen": "rnb1kb1r/ppp1pppp/1q3n2/8/2B5/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 6 6",
+    "wall_seconds": 0.0173
+  }
+]
