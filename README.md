@@ -2,13 +2,16 @@
 
 A simulated manipulation demo that detects an ArUco marker, estimates its camera pose, solves planar inverse kinematics and executes the resulting targets in MuJoCo. ROS 2 carries the synthetic camera image and publishes the simulation result.
 
-![Four phases from the ROS 2 camera topic to marker pose, planning and MuJoCo execution.](figures/pipeline.svg)
+![Four phases from the ROS 2 camera topic to marker pose, planning and MuJoCo execution.](figures/paper-workflow.svg)
+The vector figures are available as PDF in [figures/](figures/). With Python, NumPy and Matplotlib installed, run `python paper_figures.py` to regenerate them. The visual conventions follow [figures4papers](https://github.com/ChenLiu-1996/figures4papers).
 
 ## Results
 
 The reachable marker produced a target about **0.303 m** from the arm base. MuJoCo brought the end effector to the pick location and transferred the payload to **(0.20, 0.22) m**, within the demo's **2 mm** tolerance at both stages. A marker at about **0.610 m** was rejected as unreachable. A blank image produced no motion plan.
 
-![Actual simulated end-effector trajectory, with approach and transfer in navy and plum.](figures/trajectory.svg)
+![Actual simulated end-effector trajectory, with approach and transfer in navy and plum.](figures/paper-results.svg)
+
+Panel a shows the end-effector path. Panel b shows position over simulation time. The dashed line marks the transition from approach to transfer.
 
 [Scenario results](evidence/scenarios.json) · [Sampled simulator trajectory](evidence/trajectory.csv)
 
