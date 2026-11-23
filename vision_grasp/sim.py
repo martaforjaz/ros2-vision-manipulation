@@ -35,7 +35,7 @@ MODEL = """
 """
 
 
-def execute(pick, place=PLACE):
+def execute(pick, place=PLACE, *, observe_motion=None):
     joints = inverse(*pick)
     if joints is None:
         raise ValueError("Pick pose is outside the arm workspace")
@@ -57,6 +57,9 @@ def execute(pick, place=PLACE):
                 data.mocap_pos[0] = tcp
             if step % 20 == 0 or step == 599:
                 trajectory.append((name, round(float(data.time), 4), *map(float, tcp[:2])))
+                if observe_motion is not None:
+                    observe_motion(name, pick, place, tuple(data.body("elbow").xpos[:2]),
+                                   tuple(tcp[:2]), tuple(data.mocap_pos[0, :2]))
         return tuple(map(float, data.site("tcp").xpos[:2]))
 
     reached = phase("approach", joints, False)

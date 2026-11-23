@@ -52,7 +52,7 @@ class Workcell:
         self.board = chess.Board()
         self.pieces = {sq: i for i, sq in enumerate(sorted(self.board.piece_map()))}
 
-    def play(self, uci, inject_occlusion=False, inject_wrong_square=None):
+    def play(self, uci, inject_occlusion=False, inject_wrong_square=None, *, observe_motion=None):
         move = chess.Move.from_uci(uci)
         if (move not in self.board.legal_moves or self.board.is_castling(move) or move.promotion):
             raise ValueError(f"Unsupported or illegal move: {uci}")
@@ -65,14 +65,14 @@ class Workcell:
             square = move.to_square
             if self.board.is_en_passant(move):
                 square += -8 if self.board.turn == chess.WHITE else 8
-            motion, _ = execute(center(square), TRAY)
+            motion, _ = execute(center(square), TRAY, observe_motion=observe_motion)
             errors.append(motion["place_error_metres"])
             expected.pop(square)
         simulated = expected.copy()
         tag = expected.pop(move.from_square)
         expected[move.to_square] = tag
         commanded = inject_wrong_square if inject_wrong_square is not None else move.to_square
-        motion, _ = execute(center(move.from_square), center(commanded))
+        motion, _ = execute(center(move.from_square), center(commanded), observe_motion=observe_motion)
         errors.append(motion["place_error_metres"])
         placed = motion["payload_final_metres"]
         square = min(chess.SQUARES, key=lambda sq: dist(center(sq), placed))

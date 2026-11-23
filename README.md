@@ -40,6 +40,13 @@ python chess_demo.py --stockfish /path/to/stockfish
 
 After building the ROS package, run `ros2 run vision_grasp chess_demo`. Publish a UCI move such as `e2e4` to `/chess/move` as a `std_msgs/msg/String`, then inspect `/chess/result`. Pass `--ros-args -p stockfish_path:=/path/to/stockfish` to request an engine reply after each accepted move.
 
+The portfolio replay pairs the board with a video rendered from the sampled MuJoCo arm positions. To regenerate the video and verified-move timestamps:
+
+```bash
+python -m pip install imageio imageio-ffmpeg Pillow
+python render_chess_video.py evidence/chess-scripted.json chess-arm.mp4 chess-arm-times.json
+```
+
 The board uses fixed synthetic calibration and ArUco identifiers. Each transfer uses an idealized grasp, with no collision-aware planning. Castling and promotion are explicitly unavailable in this demo.
 
 ## Run the simulation
