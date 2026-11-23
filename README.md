@@ -1,4 +1,16 @@
-# Vision Guided Pick and Place with ROS 2
+# Vision-guided robotics with ROS 2
+
+![Original illustration of a robot arm reaching across a chessboard.](figures/chess-illustration.png)
+
+A robot can reach the right coordinates and still leave a piece on the wrong square. This simulated workcell reads ArUco tags, moves a chess piece with MuJoCo and checks the board through a second camera observation before updating the game.
+
+![Animated MuJoCo end-effector trace for e2 to e4 alongside the synthetic ArUco camera before and after verification.](figures/chess-simulation.gif)
+
+The replay shows the sampled MuJoCo trajectory for the opening move **e2 → e4**, paired with the actual synthetic camera frames before motion and after verification. [Explore the interactive match replay](https://martaforjaz.github.io/#robotics).
+
+To regenerate both visuals, run `python -m pip install -r requirements.txt Pillow==12.2.0`, then `python readme_visuals.py`.
+
+## Pick-and-place benchmark
 
 A simulated manipulation demo that detects an ArUco marker, estimates its camera pose, solves planar inverse kinematics and executes the resulting targets in MuJoCo. ROS 2 carries the synthetic camera image and publishes the simulation result.
 
