@@ -26,10 +26,10 @@ def hero():
     d.text((49, 105), "Robotic chess", fill="white", font_size=51, stroke_width=1)
     d.text((51, 178), "Camera-verified moves in ROS 2 + MuJoCo", fill=LIGHT, font_size=20)
     board = (655, 137)
-    for row in range(6):
+    for row in range(8):
         for col in range(8):
-            x, y = board[0]+col*32-row*13, board[1]+row*19
-            d.polygon([(x,y),(x+32,y),(x+19,y+19),(x-13,y+19)],
+            x, y = board[0]+col*32-row*10, board[1]+row*14
+            d.polygon([(x,y),(x+32,y),(x+22,y+14),(x-10,y+14)],
                       fill=LIGHT if (row+col)%2 else "#8b557e")
     for x, y, color in [(703,230,GOLD),(752,208,"#fff5ed"),(779,164,GOLD),(866,178,"#fff5ed")]:
         d.ellipse((x-12,y-6,x+12,y+4), fill=NAVY)
@@ -78,7 +78,7 @@ def replay():
         verified = len(path) == len(trajectory)
         camera = after if verified else before
         frame.paste(camera.resize((220, 220), Image.Resampling.NEAREST), (622, 53))
-        label = "e2 → e4  ·  Board verified" if verified else f"e2 → e4  ·  {phase.title()}"
+        label = "e2 to e4  ·  Board verified" if verified else f"e2 to e4  ·  {phase.title()}"
         d.text((36, 281), label, fill=NAVY, font_size=18)
         frames.append(frame)
     assert evidence["move"] == "e2e4" and evidence["verification_retries"] == 0
