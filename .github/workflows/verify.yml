@@ -28,5 +28,4 @@ jobs:
           ros2 run vision_grasp demo --ros-args -p scene:=reachable > /tmp/vision-demo.log 2>&1 &
           pid=$!
           trap 'kill "$pid" 2>/dev/null || true; cat /tmp/vision-demo.log' EXIT
-          timeout 30 ros2 topic echo /simulated_grasp/plan --once > /tmp/vision-plan.log
-          grep -q '"status": "reachable"' /tmp/vision-plan.log
+          timeout 30 python3 check_ros_topic.py
