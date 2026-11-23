@@ -1,0 +1,32 @@
+{
+  "reachable": {
+    "target_metres": [
+      0.302521,
+      0.000247
+    ],
+    "forward_residual_metres": 0.0,
+    "simulation": {
+      "pick_error_metres": 0.0,
+      "place_error_metres": 0.0,
+      "drop_target_metres": [
+        0.2,
+        0.22
+      ],
+      "payload_final_metres": [
+        0.20000000000000007,
+        0.22000000000000003
+      ]
+    },
+    "status": "reachable"
+  },
+  "unreachable": {
+    "target_metres": [
+      0.610169,
+      0.000506
+    ],
+    "status": "unreachable"
+  },
+  "missing": {
+    "status": "marker_missing"
+  }
+}

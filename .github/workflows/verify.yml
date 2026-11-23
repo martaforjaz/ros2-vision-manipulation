@@ -1,0 +1,32 @@
+name: Verify simulated grasp
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  ros:
+    runs-on: ubuntu-latest
+    container: ros:jazzy-ros-base
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install and build
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq python3-pip python3-colcon-common-extensions libgl1 libglib2.0-0t64
+          python3 -m pip install --target /tmp/vision-deps -r requirements.txt
+          export PYTHONPATH="/tmp/vision-deps:${PYTHONPATH:-}"
+          source /opt/ros/jazzy/setup.bash
+          python3 check_demo.py
+          colcon build --packages-select vision_grasp
+      - name: Verify ROS topic output
+        run: |
+          export PYTHONPATH="/tmp/vision-deps:${PYTHONPATH:-}"
+          source /opt/ros/jazzy/setup.bash
+          source install/setup.bash
+          ros2 run vision_grasp demo --ros-args -p scene:=reachable > /tmp/vision-demo.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true; cat /tmp/vision-demo.log' EXIT
+          timeout 30 ros2 topic echo /simulated_grasp/plan --once > /tmp/vision-plan.log
+          grep -q '"status": "reachable"' /tmp/vision-plan.log
